@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VCS Courier System</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f6f8;
+      color: #222;
+    }
+
+    header {
+      background: #1f4e79;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    header p {
+      margin: 6px 0 0;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 0;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      margin: 12px 0;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background: #1f4e79;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 17px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #163a5c;
+    }
+
+    #result {
+      margin-top: 20px;
+      padding: 15px;
+      background: #eef5fb;
+      border-radius: 8px;
+      display: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>VCS Courier System</h1>
+    <p>International & Domestic Courier Service</p>
+  </header>
+
+  <div class="container">
+    <div class="card">
+
+      <h2>Track Your Courier</h2>
+
+      <input
+        type="text"
+        id="trackingNumber"
+        placeholder="Enter Tracking Number"
+      >
+
+      <button onclick="trackCourier()">
+        Track Courier
+      </button>
+
+      <div id="result"></div>
+
+    </div>
+  </div>
+
+  <footer>
+    © 2026 Vitaran Courier Service
+  </footer>
+
+  <script>
+    function trackCourier() {
+      const number = document.getElementById("trackingNumber").value;
+      const result = document.getElementById("result");
+
+      if (number.trim() === "") {
+        result.style.display = "block";
+        result.innerHTML = "Please enter a tracking number.";
+        return;
+      }
+
+      result.style.display = "block";
+      result.innerHTML =
+        "<strong>Tracking Number:</strong> " + number +
+        "<br><br>" +
+        "<strong>Status:</strong> Tracking system is ready.";
+    }
+  </script>
+
+</body>
+</html>
