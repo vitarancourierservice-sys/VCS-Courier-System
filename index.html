@@ -1,40 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VCS Courier System</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VCS Courier Tracking</title>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f4f6f8;
-      color: #222;
-    }
+<style>
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f4f6f8;
+  color:#222;
+}
+header{
+  background:#1f4e79;
+  color:white;
+  padding:25px 15px;
+  text-align:center;
+}
+header h1{margin:0;font-size:28px}
+header p{margin:8px 0 0}
 
-    header {
-      background: #1f4e79;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
+.container{
+  max-width:600px;
+  margin:30px auto;
+  padding:20px;
+}
+.card{
+  background:white;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 2px 10px #ccc;
+}
+input,select,button{
+  width:100%;
+  box-sizing:border-box;
+  padding:14px;
+  margin-top:12px;
+  font-size:16px;
+  border-radius:7px;
+}
+input,select{border:1px solid #bbb}
+button{
+  border:0;
+  background:#1f4e79;
+  color:white;
+  font-weight:bold;
+}
+button:active{opacity:.8}
 
-    header h1 {
-      margin: 0;
-      font-size: 28px;
-    }
+#result{
+  margin-top:20px;
+  padding:15px;
+  background:#eef5fb;
+  border-radius:8px;
+  display:none;
+}
+.status{
+  font-size:20px;
+  font-weight:bold;
+}
+</style>
+</head>
 
-    header p {
-      margin: 6px 0 0;
-    }
+<body>
 
-    .container {
-      max-width: 700px;
-      margin: 30px auto;
-      padding: 20px;
-    }
+<header>
+  <h1>Track Your Courier</h1>
+  <p>Vitaran Courier Service</p>
+</header>
 
+<div class="container">
+  <div class="card">
+
+    <h2>Courier Tracking</h2>
+
+    <label>Courier Company</label>
+    <select id="courier">
+      <option value="">Select Courier</option>
+      <option>DHL</option>
+      <option>FedEx</option>
+      <option>UPS</option>
+      <option>India Post</option>
+      <option>Other Courier</option>
+    </select>
+
+    <label>Tracking Number</label>
+    <input id="tracking" type="text"
+      placeholder="Enter tracking number">
+
+    <button onclick="trackCourier()">Track Courier</button>
+
+    <div id="result"></div>
+
+  </div>
+</div>
+
+<script>
+function trackCourier(){
+
+  const courier=document.getElementById("courier").value;
+  const tracking=document.getElementById("tracking").value.trim();
+  const result=document.getElementById("result");
+
+  result.style.display="block";
+
+  if(!courier || !tracking){
+    result.innerHTML="Please select courier company and enter tracking number.";
+    return;
+  }
+
+  result.innerHTML=
+    "<div class='status'>Tracking Request Received</div>" +
+    "<p><b>Courier:</b> "+courier+"</p>" +
+    "<p><b>Tracking Number:</b> "+tracking+"</p>" +
+    "<p>Your courier tracking information will appear here.</p>";
+}
+</script>
+
+</body>
+</html>
     .card {
       background: white;
       padding: 25px;
