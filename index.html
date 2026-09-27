@@ -105,22 +105,22 @@ button:active{opacity:.8}
 <script>
 function trackCourier(){
 
-  const courier=document.getElementById("courier").value;
-  const tracking=document.getElementById("tracking").value.trim();
-  const result=document.getElementById("result");
+  const courier = document.getElementById("courier").value;
+  const tracking = document.getElementById("tracking").value.trim();
+  const result = document.getElementById("result");
 
-  result.style.display="block";
+  result.style.display = "block";
 
-  if(!courier || !tracking){
-    result.innerHTML="Please select courier company and enter tracking number.";
+  if(courier === "Select Courier" || !tracking){
+    result.innerHTML = "Please select courier company and enter tracking number.";
     return;
   }
 
-  result.innerHTML=
+  result.innerHTML =
     "<div class='status'>Tracking Request Received</div>" +
-    "<p><b>Courier:</b> "+courier+"</p>" +
-    "<p><b>Tracking Number:</b> "+tracking+"</p>" +
-    "<p><b>Status:</b> Tracking system is ready.</p>";
+    "<p><strong>Courier:</strong> " + courier + "</p>" +
+    "<p><strong>Tracking Number:</strong> " + tracking + "</p>" +
+    "<p><strong>Status:</strong> Tracking system is ready.</p>";
 }
 </script>
 
